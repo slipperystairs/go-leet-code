@@ -21,7 +21,7 @@ func Search(nums []int, target int) int {
 	high := len(nums)
 
 	for low < high {
-		midpoint := (low + (high - low) / 2)
+		midpoint := (low + (high-low)/2)
 		value := nums[midpoint]
 		fmt.Printf("value: %d\n", value)
 		fmt.Printf("midpoint: %d\n", midpoint)
@@ -29,9 +29,9 @@ func Search(nums []int, target int) int {
 		if value == target {
 			return midpoint
 		} else if value > target {
-			high = midpoint;
+			high = midpoint
 		} else {
-			low = midpoint + 1;
+			low = midpoint + 1
 		}
 
 	}
