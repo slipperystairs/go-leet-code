@@ -1,14 +1,31 @@
 package main
 
-import "testing"
+import (
+	"bytes"
+	"fmt"
+	"testing"
+)
 
-func TestSolution(t *testing.T) {
-	t.Run("roman numeral 4", func(t *testing.T) {
-		got := Solution("ass")
-		want := "ssa"
+func TestReversedString(t *testing.T) {
+	t.Run("test reversed byte of characters", func(t *testing.T) {
+		var tests = []struct {
+			input []byte
+			expected []byte
+		}{
+			{ []byte("hello"), []byte("olleh") },
+			{ []byte("racecar"), []byte("racecar") },
+			{ []byte("abcd"), []byte("dcba") },
+		}
 
-		if got != want {
-			t.Errorf("got %s want %s given", got, want)
+		for _, test := range tests {
+			// copy to avoid copy mutation side effects
+			var result []byte = ReversedString(append([]byte(nil), test.input...))
+			fmt.Printf("result: %s\n", string(result))
+			if !bytes.Equal(result, test.expected) {
+				t.Errorf("Got %q but we wanted %q ", result, test.expected)
+			}
 		}
 	})
+
 }
+

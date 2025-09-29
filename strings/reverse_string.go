@@ -1,11 +1,17 @@
 package main
 
-func Solution(word string) string {
-	var reversed string = ""
+func ReversedString(chars []byte) []byte{
+	var left int = 0
+	var right int = len(chars) - 1
+	var temp byte;
 
-	for i := len(word) - 1; i >= 0; i-- {
-		reversed += string(word[i])
-	}
+	for left < right {
+		temp = chars[left]
+		chars[left] = chars[right]
+		chars[right] = temp
+		left++
+		right--
+	} 
 
-	return reversed
+	return chars
 }
