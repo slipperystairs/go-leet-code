@@ -1,9 +1,9 @@
 package main
 
-func ReversedString(chars []byte) []byte{
+func ReversedString(chars []byte) []byte {
 	var left int = 0
 	var right int = len(chars) - 1
-	var temp byte;
+	var temp byte
 
 	for left < right {
 		temp = chars[left]
@@ -11,7 +11,7 @@ func ReversedString(chars []byte) []byte{
 		chars[right] = temp
 		left++
 		right--
-	} 
+	}
 
 	return chars
 }
