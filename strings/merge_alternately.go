@@ -14,4 +14,16 @@
 package main
 
 func MergeAlternately(word1 string, word2 string) string {
+	var alternating []byte
+
+	for i := 0; i < len(word1) || i < len(word2); i++ {
+		if i < len(word1) {
+			alternating = append(alternating, word1[i])
+		}
+		if i < len(word2) {
+			alternating = append(alternating, word2[i])
+		}
+	}
+
+	return string(alternating)
 }
